@@ -36,9 +36,20 @@ app.post('/webhook/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
         let event = req.body.entry[0].messaging[i]
         let sender = event.sender.id
-        if (event.message && event.message.text) {
-            let text = event.message.text
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        // if (event.message && event.message.text) {
+        //     let text = event.message.text
+        //     sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        // }
+        if (event.message && (event.message.text == "Hi" || event.message.text == "Hello")) {
+            sendTextMessage(sender,"Hello, Welcome to GoHappy babysitters. So are you a babysitter or parent?")
+        }
+        if (event.message && (event.message.text == "babysitter" || event.message.text == "Babysitter")) {
+            sendTextMessage(sender,"We have many parents enrolled to our site. Join us on www.gohappybabysitters.com")
+        } if (event.message && (event.message.text == "parent" || event.message.text == "Parent")) {
+            sendTextMessage(sender,"We have many babysitters. Join our site to post jobs or chat with babysitters in San Francisco directly.")
+        }
+        if (event.message && (event.message.text == "bye") {
+            sendTextMessage(sender,"Hope to see you soon. Have a good day.")
         }
     }
     res.sendStatus(200)
