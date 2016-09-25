@@ -44,23 +44,23 @@ app.get('/webhook/', function (req, res) {
 //     res.sendStatus(200)
 // })
 
-function sendTextMessage(sender, text) {
-    let messageData = { text:text }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
+// function sendTextMessage(sender, text) {
+//     let messageData = { text:text }
+//     request({
+//         url: 'https://graph.facebook.com/v2.6/me/messages',
+//         qs: {access_token:token},
+//         method: 'POST',
+//         json: {
+//             recipient: {id:sender},
+//             message: messageData,
+//         }
+//     }, function(error, response, body) {
+//         if (error) {
+//             console.log('Error sending messages: ', error)
+//         } else if (response.body.error) {
+//             console.log('Error: ', response.body.error)
+//         }
+//     })
+// }
 
 const token = "EAAPz3YKnxY4BAFFL7ZAg9sh0oZCZBZBG7XmVdjjIOra9bfdmY9wiLN9WKhknIvHvZCtprvE1lW8FiYwcdKpbLVQSrmJLk3DT9yZBbgZAmUSOPUJeHcNZCEWAZCiD5GSI2qq0KZB3kbNP287aXZBsqX4210q52u2d1dTZC5mYDlE9q16BDQZDZD"
